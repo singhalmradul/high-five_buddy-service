@@ -1,1 +1,4 @@
-# high-five_buddy-service
+# high-five_follow-service
+
+## TODO:
+- add pagination

@@ -12,6 +12,8 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -22,9 +24,11 @@ public class User {
     @GeneratedValue(UUIDGenerator.class)
     private UUID id;
 
+    @JsonIgnore
     @Relationship(type = "FOLLOW", direction = OUTGOING)
     private List<User> following;
 
+    @JsonIgnore
     @Relationship(type = "FOLLOW", direction = INCOMING)
     private List<User> followers;
 }
