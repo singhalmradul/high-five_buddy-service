@@ -1,13 +1,13 @@
-package io.github.singhalmradul.buddyservice;
+package io.github.singhalmradul.followservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BuddyServiceApplication {
+public class FollowServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BuddyServiceApplication.class, args);
+		SpringApplication.run(FollowServiceApplication.class, args);
 	}
 
 }

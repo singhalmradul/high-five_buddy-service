@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.github.singhalmradul</groupId>
-	<artifactId>buddy-service</artifactId>
+	<artifactId>follow-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>buddy-service</name>
-	<description>Demo project for Spring Boot</description>
+	<name>follow-service</name>
+	<description>follow service for project high-five</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

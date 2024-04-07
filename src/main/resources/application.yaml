@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: follow-service
+  neo4j:
+    uri: bolt://localhost:7687/HiV
+    authentication:
+      username: neo4j
+      password: high-five
