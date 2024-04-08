@@ -6,6 +6,7 @@ eureka:
 logging:
   level:
     '[org.springframework.data.neo4j]': DEBUG
+
 server:
   port: 44444
 
