@@ -1,13 +1,10 @@
 eureka:
   client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    enabled: false
 
 logging:
   level:
     '[org.springframework.data.neo4j]': DEBUG
-server:
-  port: 44444
 
 spring:
   application:
