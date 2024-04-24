@@ -24,6 +24,7 @@ public class RouterConfiguration {
             .path("/users/{userId}",builder -> builder
                 .GET("/followers", userFollowHandler::getFollowers)
                 .GET("/following", userFollowHandler::getFollowing)
+                .POST("/follow/{followId}", userFollowHandler::followUser)
             )
             .build()
         );

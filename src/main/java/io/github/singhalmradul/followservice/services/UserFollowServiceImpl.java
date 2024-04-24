@@ -27,4 +27,12 @@ public class UserFollowServiceImpl implements UserFollowService {
     public List<User> getFollowing(UUID userId) {
         return repository.findById(userId).map(User::getFollowing).orElse(emptyList());
     }
+
+    @Override
+    public void followUser(UUID userId, UUID followId) {
+        User user = repository.findById(userId).orElse(new User(userId));
+        User follow = repository.findById(followId).orElse(new User(followId));
+        user.getFollowing().add(follow);
+        repository.save(user);
+    }
 }

@@ -10,4 +10,6 @@ public interface UserFollowService {
     List<User> getFollowers(UUID userId);
 
     List<User> getFollowing(UUID userId);
+
+    void followUser(UUID userId, UUID followId);
 }

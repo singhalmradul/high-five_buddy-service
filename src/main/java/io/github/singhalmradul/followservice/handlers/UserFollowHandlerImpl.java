@@ -16,17 +16,26 @@ import lombok.AllArgsConstructor;
 @Component
 public class UserFollowHandlerImpl implements UserFollowHandler {
 
+    private static final String USER_ID = "userId";
     private final UserFollowService userFollowService;
 
     @Override
     public ServerResponse getFollowers(ServerRequest request) {
-        UUID userId = UUID.fromString(request.pathVariable("userId"));
+        UUID userId = UUID.fromString(request.pathVariable(USER_ID));
         return ok().body(userFollowService.getFollowers(userId));
     }
 
     @Override
     public ServerResponse getFollowing(ServerRequest request) {
-        UUID userId = UUID.fromString(request.pathVariable("userId"));
+        UUID userId = UUID.fromString(request.pathVariable(USER_ID));
         return ok().body(userFollowService.getFollowing(userId));
+    }
+
+    @Override
+    public ServerResponse followUser(ServerRequest request) {
+        UUID userId = UUID.fromString(request.pathVariable(USER_ID));
+        UUID followId = UUID.fromString(request.pathVariable("followId"));
+        userFollowService.followUser(userId, followId);
+        return ok().build();
     }
 }

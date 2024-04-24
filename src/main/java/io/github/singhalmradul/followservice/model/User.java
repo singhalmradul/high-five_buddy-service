@@ -3,6 +3,7 @@ package io.github.singhalmradul.followservice.model;
 import static org.springframework.data.neo4j.core.schema.Relationship.Direction.INCOMING;
 import static org.springframework.data.neo4j.core.schema.Relationship.Direction.OUTGOING;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,20 +16,26 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Node
 public class User {
 
     @Id
+    @NonNull
     @GeneratedValue(UUIDGenerator.class)
     private UUID id;
 
     @JsonIgnore
     @Relationship(type = "FOLLOW", direction = OUTGOING)
-    private List<User> following;
+    private List<User> following = new ArrayList<>();
 
     @JsonIgnore
     @Relationship(type = "FOLLOW", direction = INCOMING)
-    private List<User> followers;
+    private List<User> followers = new ArrayList<>();
 }
