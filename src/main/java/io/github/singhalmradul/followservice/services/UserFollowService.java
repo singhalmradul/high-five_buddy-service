@@ -12,4 +12,6 @@ public interface UserFollowService {
     List<User> getFollowing(UUID userId);
 
     void followUser(UUID userId, UUID followId);
+
+    boolean isFollowing(UUID userId, UUID followId);
 }

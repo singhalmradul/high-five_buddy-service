@@ -32,10 +32,10 @@ public class User {
     private UUID id;
 
     @JsonIgnore
-    @Relationship(type = "FOLLOW", direction = OUTGOING)
+    @Relationship(type = "FOLLOWS", direction = OUTGOING)
     private List<User> following = new ArrayList<>();
 
     @JsonIgnore
-    @Relationship(type = "FOLLOW", direction = INCOMING)
+    @Relationship(type = "FOLLOWS", direction = INCOMING)
     private List<User> followers = new ArrayList<>();
 }

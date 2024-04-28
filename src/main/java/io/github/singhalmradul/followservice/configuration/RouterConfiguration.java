@@ -15,16 +15,17 @@ import lombok.AllArgsConstructor;
 @Configuration
 public class RouterConfiguration {
 
-    private final UserFollowHandler userFollowHandler;
+    private final UserFollowHandler handler;
 
     @Bean
     RouterFunction<ServerResponse> userFollowRouter() {
         return (
             route()
             .path("/users/{userId}",builder -> builder
-                .GET("/followers", userFollowHandler::getFollowers)
-                .GET("/following", userFollowHandler::getFollowing)
-                .POST("/follow/{followId}", userFollowHandler::followUser)
+                .GET("/followers", handler::getFollowers)
+                .GET("/following", handler::getFollowing)
+                .GET("/follow/{followId}", handler::isFollowing)
+                .POST("/follow/{followId}", handler::followUser)
             )
             .build()
         );

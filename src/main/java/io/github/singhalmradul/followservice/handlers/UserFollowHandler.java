@@ -11,4 +11,6 @@ public interface UserFollowHandler {
 
     ServerResponse followUser(ServerRequest request);
 
+    ServerResponse isFollowing(ServerRequest request);
+
 }

@@ -35,4 +35,9 @@ public class UserFollowServiceImpl implements UserFollowService {
         user.getFollowing().add(follow);
         repository.save(user);
     }
+
+    @Override
+    public boolean isFollowing(UUID userId, UUID followId) {
+        return repository.doesUserFollow(userId, followId);
+    }
 }

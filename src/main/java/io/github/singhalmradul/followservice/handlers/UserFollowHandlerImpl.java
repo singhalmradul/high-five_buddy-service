@@ -38,4 +38,11 @@ public class UserFollowHandlerImpl implements UserFollowHandler {
         userFollowService.followUser(userId, followId);
         return ok().build();
     }
+
+    @Override
+    public ServerResponse isFollowing(ServerRequest request) {
+        UUID userId = UUID.fromString(request.pathVariable(USER_ID));
+        UUID followId = UUID.fromString(request.pathVariable("followId"));
+        return ok().body(userFollowService.isFollowing(userId, followId));
+    }
 }
