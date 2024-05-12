@@ -9,4 +9,10 @@ public interface UserFollowHandler {
 
     ServerResponse getFollowing(ServerRequest request);
 
+    ServerResponse followUser(ServerRequest request);
+
+    ServerResponse unfollowUser(ServerRequest request);
+
+    ServerResponse isFollowing(ServerRequest request);
+
 }

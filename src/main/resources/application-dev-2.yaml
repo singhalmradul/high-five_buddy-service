@@ -6,6 +6,9 @@ logging:
   level:
     '[org.springframework.data.neo4j]': DEBUG
 
+server:
+  port: 8080
+
 spring:
   application:
     name: follow-service
