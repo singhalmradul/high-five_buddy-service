@@ -3,8 +3,8 @@ package io.github.singhalmradul.followservice.model;
 import static org.springframework.data.neo4j.core.schema.Relationship.Direction.INCOMING;
 import static org.springframework.data.neo4j.core.schema.Relationship.Direction.OUTGOING;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
@@ -33,9 +33,28 @@ public class User {
 
     @JsonIgnore
     @Relationship(type = "FOLLOWS", direction = OUTGOING)
-    private List<User> following = new ArrayList<>();
+    private Set<User> following = new HashSet<>();
 
     @JsonIgnore
     @Relationship(type = "FOLLOWS", direction = INCOMING)
-    private List<User> followers = new ArrayList<>();
+    private Set<User> followers = new HashSet<>();
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj instanceof User user)
+            return id.equals(user.id);
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

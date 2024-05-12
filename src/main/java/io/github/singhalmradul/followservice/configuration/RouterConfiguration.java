@@ -26,6 +26,7 @@ public class RouterConfiguration {
                 .GET("/following", handler::getFollowing)
                 .GET("/follow/{followId}", handler::isFollowing)
                 .POST("/follow/{followId}", handler::followUser)
+                .DELETE("/follow/{followId}", handler::unfollowUser)
             )
             .build()
         );
